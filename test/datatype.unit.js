@@ -166,7 +166,7 @@ describe("datatype.js", function () {
       assert.ok(!isNaN(date.getTime()));
       assert.strictEqual(Object.prototype.toString.call(date), "[object Date]");
     });
-    it('basic test with stubed value', function () {
+    it('basic test with stubbed value', function () {
       var today = new Date();
       sinon.stub(faker.datatype, 'number').returns(today);
       var date = faker.datatype.datetime();
@@ -283,6 +283,29 @@ describe("datatype.js", function () {
       faker.seed(10);
       var generatedArray = faker.datatype.array(1);
       assert.strictEqual(generatedArray[0], '<"N[JfnOW5');
+    });
+  });
+
+  describe('bigInt', function () {
+    it('should generate a bigInt value', function () {
+      var generateBigInt = faker.datatype.bigInt();
+      assert.strictEqual(typeof generateBigInt, 'bigint');
+    }); 
+
+    it('Generate and compare two numbers of data type BigInt, with seeding', function () {
+      faker.seed(123);
+      var generateBigInt1 = faker.datatype.bigInt();
+      faker.seed(123);
+      var generateBigInt2 = faker.datatype.bigInt();
+      assert.strictEqual(generateBigInt1, generateBigInt2);
+    });
+
+    it('summing with the Number datatype should be an error', function(done) {
+      try {
+        faker.datatype.bigInt() + 10
+      } catch (error) {
+        done();
+      }
     });
   });
 
