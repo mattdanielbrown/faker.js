@@ -61,7 +61,7 @@
     "nyc": "^15.1.0",
     "optimist": "0.3.5",
     "sinon": "^9.0.3",
-    "through2": "2.0.0",
+    "through2": "4.0.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "vinyl-transform": "^1.0.0"
